@@ -4,7 +4,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 declare const window: any;
 
 @Component({
-  selector: 'app-root',
+  selector: 'thc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
