@@ -1,20 +1,122 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Snow</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i|Work+Sans:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/1.css">
+</head>
+
+<body>
+  <!-- START: Header -->
+  <div class="header">
+    <div class="bg-color">
+      <nav class="navbar navbar-expand-lg fixed-top my-nav">
+        <div class="container">
+          <!-- Brand -->
+          <a href="" class="navbar-brand">
+            <img src="./images/logo-white.png" alt="" class="white-logo">
+            <img src="./images/logo-black.png" alt="" class="black-logo">
+          </a>
+
+          <!-- Collapse -->
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mynavbar" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+          </button>
+
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav ml-auto my-nav-ul">
+              <li class="nav-item">
+                <a href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="#">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="wrapper-header">
+        <div class="container text-center">
+          <h2 class="w-h2">New Branding Agency</h2>
+          <h1 class="w-h1">
+            We are about to change the way
+            <br>
+            <i>you publish on the web</i>
+            </h3>
+            <a href="">
+              <button type="submit" class="btn btn-submit w-button">Free Download</button>
+            </a>
+        </div>
+      </div>
+
+      <div class="angle-down">
+        <a href="">
+          <i class="fa fa-angle-down"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- END: Header -->
+
+  <!-- START: About Our Agency -->
+  <div class="about-agency" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-xs-center">
+          <h2 class="a-h2">About Our Agency</h2>
+          <p>We are a new design studio based in USA. We have over 20 years of combined experience, and know a thing or two
+            about designing websites and mobile apps. Clever use of technology and lean processes enable us to work faster
+            and smarter.
+          </p>
+          <img src="assets/images/about-me-signature.png" alt="" class="nk-img-fit">
+          <div class="nk-gap-4 mt-25"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END: About Our Agency -->
+
+  <div style="height:600px; background-color: red;"></div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="js/1.js"></script>
+  <script>
+    (function ($) {
+      // Collapse the navbar on scroll
+      $(window).scroll(function () {
+        if ($(".my-nav").offset().top > 50) {
+          $(".my-nav").addClass("nav-white-background");
+        } else {
+          $(".my-nav").removeClass("nav-white-background");
+        }
+      });
+    })(jQuery);
+  </script>
+</body>
+
+</html>
