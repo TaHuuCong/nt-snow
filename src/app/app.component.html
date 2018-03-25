@@ -19,16 +19,16 @@
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav ml-auto my-nav-ul">
             <li class="nav-item">
-              <a href="#">About</a>
+              <a href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a href="#">Contact</a>
+              <a href="">Contact</a>
             </li>
             <li class="nav-item">
-              <a href="#">Login</a>
+              <a href="#" (click)="openDialogLogin()">Login</a>
             </li>
             <li class="nav-item">
-              <a href="#">Register</a>
+              <a href="#" (click)="openDialogRegister()">Register</a>
             </li>
           </ul>
         </div>
@@ -565,19 +565,7 @@
       </div>
       <div class="col-12 col-lg-7">
         <!-- START: Form -->
-        <form action="#" class="ci-form">
-          <div class="row">
-            <div class="col-12 col-md-6 ci-form-name">
-              <input type="text" class="form-control ci-form-control" name="name" placeholder="Your Name">
-            </div>
-            <div class="col-12 col-md-6">
-              <input type="email" class="form-control ci-form-control" name="email" placeholder="Your Email">
-            </div>
-          </div>
-          <input type="text" class="form-control ci-form-control ci-form-title" name="title" placeholder="Your Title">
-          <textarea class="form-control ci-form-control" name="message" rows="8" placeholder="Your Comment" aria-required="true"></textarea>
-          <button class="ci-form-btn">Send Message</button>
-        </form>
+        <thc-contact-form></thc-contact-form>
         <!-- END: Form -->
       </div>
     </div>
@@ -592,22 +580,22 @@
     <div class="ft-social-icon">
       <ul class="ft-ul">
         <li>
-          <a href="https://twitter.com/nkdevv">
+          <a href="https://twitter.com">
             <i class="fa fa-twitter"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.facebook.com/unvabdesign/">
+          <a href="https://www.facebook.com">
             <i class="fa fa-facebook"></i>
           </a>
         </li>
         <li>
-          <a href="https://dribbble.com/_nK">
+          <a href="https://dribbble.com">
             <i class="fa fa-dribbble"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/unvab/">
+          <a href="https://www.instagram.com">
             <i class="fa fa-instagram"></i>
           </a>
         </li>

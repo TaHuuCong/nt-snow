@@ -1,0 +1,67 @@
+<form action="#" class="ci-form" novalidate (ngSubmit)="onSubmit()" [formGroup]="frContact">
+  <div class="form-group row">
+    <div class="col-12 col-md-6 ci-form-name">
+      <input type="text" class="form-control ci-form-control" placeholder="Your Name" formControlName="contactName">
+      <div class="col alert alert-danger" role="alert" *ngIf="contactName.errors && contactName.touched">
+        <div *ngIf="contactName.errors?.required">
+          Name is required.
+        </div>
+        <div *ngIf="contactName.errors?.pattern">
+          Name start with a alphabet.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 ci-form-email">
+      <input type="email" class="form-control ci-form-control" placeholder="Your Email" formControlName="contactEmail">
+      <div class="col alert alert-danger" role="alert" *ngIf="contactEmail.errors && contactEmail.touched">
+        <div *ngIf="contactEmail.errors?.required">
+          Email is required.
+        </div>
+        <div *ngIf="contactEmail.errors?.pattern">
+          Email format should be cong@deptrai.com
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ci-h-30"></div>
+  <div class="form-group row">
+    <input type="text" class="form-control ci-form-control ci-form-title" placeholder="Your Title" formControlName="contactTitle">
+    <div class="col alert alert-danger" role="alert" *ngIf="contactTitle.errors && contactTitle.touched">
+      Title is required.
+    </div>
+  </div>
+  <div class="ci-h-30"></div>
+  <div class="form-group row">
+    <textarea class="form-control ci-form-control" rows="8" placeholder="Your Comment" aria-required="true" formControlName="contactComment"></textarea>
+    <div class="col alert alert-danger" role="alert" *ngIf="contactComment.errors && contactComment.touched">
+      Comment is required.
+    </div>
+  </div>
+  <div class="ci-h-30"></div>
+  <div class="form-group row">
+    <button class="ci-form-btn" [disabled]="!frContact.valid">Send Message</button>
+  </div>
+  <div class="form-group row">
+    <div class="col alert alert-success" role="alert" [hidden]="!submitted">
+      <div>Thank you! Your message has been sent successfully.</div>
+      <table class="table">
+        <tr>
+          <td>Name:</td>
+          <td>{{frContact.value.contactName}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{frContact.value.contactEmail}}</td>
+        </tr>
+        <tr>
+          <td>Title:</td>
+          <td>{{frContact.value.contactTitle}}</td>
+        </tr>
+        <tr>
+          <td>Comment:</td>
+          <td>{{frContact.value.contactComment}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</form>

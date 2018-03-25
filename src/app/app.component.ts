@@ -1,5 +1,8 @@
 import { BrowserModule, DOCUMENT } from '@angular/platform-browser';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 declare const window: any;
 
@@ -12,7 +15,7 @@ export class AppComponent {
 
   offSetTop: boolean;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -22,5 +25,27 @@ export class AppComponent {
     } else {
       this.offSetTop = false;
     }
+  }
+
+  openDialogLogin(): void {
+    const dialogRef = this.dialog.open(LoginFormComponent, {
+      width: '400px',
+      height: 'auto'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openDialogRegister(): void {
+    const dialogRef = this.dialog.open(RegisterFormComponent, {
+      width: '400px',
+      height: 'auto'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
