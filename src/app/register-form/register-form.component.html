@@ -19,7 +19,7 @@
       </div>
     </mat-form-field>
 
-    <div formGroupName="pw">
+    <div formGroupName="pw" class="my-register-form">
       <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
         <input type="password" matInput formControlName="password" placeholder="Password *">
         <div *ngIf="password.errors && !password.pristine" class="error-msg">

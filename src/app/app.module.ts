@@ -11,7 +11,6 @@ import {
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
-import { TextEqualityValidatorModule } from 'ngx-text-equality-validator';
 
 
 import { AppComponent } from './app.component';

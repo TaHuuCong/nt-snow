@@ -78,10 +78,17 @@
   width: 60%;
   margin: 0 auto;
 }
+
 .ci-form table td {
   padding-bottom: 0;
 }
 
 .ci-form table label {
   padding-bottom: 0;
+}
+
+.notify-error {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
 }

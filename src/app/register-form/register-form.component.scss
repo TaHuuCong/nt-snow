@@ -1,6 +1,6 @@
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .error {
@@ -21,6 +21,9 @@ form {
 
 .my-dialog-actions button[disabled] {
   cursor: not-allowed;
+  background-color: #673ab7;
+  opacity: 0.5; 
+  color: #fff;
 }
 
 .my-dialog-actions button {
@@ -34,4 +37,8 @@ form {
 .h2-dialog-register {
   font-weight: 700;
   margin-bottom: 30px;
+}
+
+.my-register-form mat-form-field {
+  width: 100%;
 }

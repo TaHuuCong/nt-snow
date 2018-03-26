@@ -15,11 +15,15 @@ form {
 }
 
 .my-dialog-actions {
+  margin-top: 15px;
   margin-bottom: 15px;
 }
 
 .my-dialog-actions button[disabled] {
   cursor: not-allowed;
+  background-color: #673ab7;
+  opacity: 0.5; 
+  color: #fff;
 }
 
 .my-dialog-actions button {

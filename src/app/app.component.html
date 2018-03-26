@@ -10,10 +10,13 @@
         </a>
 
         <!-- Collapse -->
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mynavbar" aria-controls="navbarNav" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="fa fa-bars"></span>
-        </button>
+        <a href="#" class="navbar-toggler" (click)="openToggle()">
+          <span class="icon-burger">
+            <span class="ib-1"></span>
+            <span class="ib-2"></span>
+            <span class="ib-3"></span>
+          </span>
+        </a>
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="mynavbar">
@@ -58,6 +61,74 @@
 </div>
 <!-- END: Header -->
 
+<!-- START: Navbar-Mobile -->
+<nav class="nav-mobile" [class.open]="btnToggle">
+  <div class="nav-bg"></div>
+  <div class="nav-table">
+    <div class="container">
+      <div class="row nm-row">
+        <div class="nav-table-header">
+          <div class="nav-logo">
+            <a href="">
+              <img src="../assets/images/logo-white.png" alt="">
+            </a>
+          </div>
+          <div class="nav-close-icon" (click)="closeToggle()">
+            <span class="close-icon"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="nav-table-content">
+          <ul>
+            <li>
+              <a href="">About</a>
+            </li>
+            <li>
+              <a href="">Contact</a>
+            </li>
+            <li>
+              <a href="">Login</a>
+            </li>
+            <li>
+              <a href="">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="nav-table-footer">
+          <ul>
+            <li>
+              <a href="https://twitter.com">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://dribbble.com">
+                <i class="fa fa-dribbble"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END: Navbar-Mobile -->
+
 <!-- START: About Our Agency -->
 <div class="about-agency bg-white" id="about">
   <div class="container">
@@ -79,7 +150,7 @@
   <div class="ft-h-94"></div>
   <div class="container">
     <div class="row ft-row">
-      <div class=" col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-portfolio"></span>
@@ -91,7 +162,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-clock"></span>
@@ -103,7 +174,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-star"></span>
@@ -115,7 +186,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-like"></span>
@@ -126,7 +197,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
   <div class="ft-h-94"></div>
@@ -147,7 +217,7 @@
     </div>
 
     <div class="row bp-items">
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-1">
         </div>
@@ -159,7 +229,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-2">
         </div>
@@ -171,7 +241,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-3">
         </div>
@@ -183,7 +253,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-4">
         </div>
@@ -195,7 +265,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-5">
         </div>
@@ -207,7 +277,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-6">
         </div>
@@ -219,7 +289,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-7">
         </div>
@@ -231,7 +301,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-8">
         </div>
@@ -243,7 +313,7 @@
         </div>
       </div>
 
-      <div class=" col-md-6 col-lg-4 no-padding">
+      <div class="col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-9">
         </div>
@@ -540,7 +610,7 @@
   <div class="ci-h-100"></div>
   <div class="container">
     <div class="row">
-      <div class=" col-lg-5">
+      <div class="col-lg-5">
         <div class="ci-text">
           <h1 class="ci-text-h1">Contact Info:</h1>
           <p class="ci-text-p">
@@ -563,10 +633,10 @@
           </ul>
         </div>
       </div>
-      <div class=" col-lg-7">
-        <!-- START: Form -->
+      <div class="col-lg-7">
+        <!-- START: Contact-Form -->
         <thc-contact-form></thc-contact-form>
-        <!-- END: Form -->
+        <!-- END: Contact-Form -->
       </div>
     </div>
   </div>

@@ -14,8 +14,17 @@ declare const window: any;
 export class AppComponent {
 
   offSetTop: boolean;
+  btnToggle: boolean;
 
   constructor(public dialog: MatDialog) { }
+
+  openToggle() {
+    this.btnToggle = true;
+  }
+
+  closeToggle() {
+    this.btnToggle = false;
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -29,7 +38,7 @@ export class AppComponent {
 
   openDialogLogin(): void {
     const dialogRef = this.dialog.open(LoginFormComponent, {
-      width: '400px',
+      width: '500px',
       height: 'auto',
       // disableClose: true
     });
@@ -41,7 +50,7 @@ export class AppComponent {
 
   openDialogRegister(): void {
     const dialogRef = this.dialog.open(RegisterFormComponent, {
-      width: '600px',
+      width: '500px',
       height: 'auto'
     });
 
