@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginComponent } from '../../../../nash-training/src/app/modal-form/login/login.component';
+
+
 
 @Component({
   selector: 'thc-login-form',
@@ -10,22 +13,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-  admin = 'admin';
-  pass = 'password';
+  user = 'cong';
+  pass = '12345';
   submitted = false;
 
   constructor(
+    private fb: FormBuilder,
     public dialogRef: MatDialogRef<LoginFormComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', Validators.required),
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -37,9 +38,30 @@ export class LoginFormComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  login() {
-    this.submitted = true;
-    console.log(this.loginForm);
+  login(): void {
+    if (this.loginForm.value.username === this.user && this.loginForm.value.password === this.pass) {
+      this.dialogRef.close();
+      this.dialog.open(LoginSuccessComponent, {
+        width: '400px',
+        height: 'auto',
+      });
+    } else {
+      this.submitted = true;
+    }
   }
+
+}
+
+
+@Component({
+  selector: 'thc-login-success',
+  template: `<h2>Login Successfully !!!</h2>`,
+  styles: ['h2 {color: green; text-align: center; font-size: 20px;}']
+})
+export class LoginSuccessComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<LoginSuccessComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
 }

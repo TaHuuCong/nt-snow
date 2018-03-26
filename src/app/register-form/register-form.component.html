@@ -1,13 +1,16 @@
 <h2 mat-dialog-title class="h2-dialog-register">Register Form</h2>
 <div mat-dialog-content>
-  <form [formGroup]="registerForm" class="my-form-register">
+  <form [formGroup]="registerForm" class="my-form-register" novalidate>
     <mat-form-field [ngClass]="{'error': username.errors && !username.pristine}" dividerColor="{{username.errors && !username.pristine ? 'warn' : 'primary'}}">
       <input type="username" matInput formControlName="username" placeholder="Username *">
       <div *ngIf="username.errors && !username.pristine" class="error-msg">
         <div [hidden]="!username.errors.required">username is required.</div>
-        <div [hidden]="!username.errors.maxlength">username must be less than 20 characters long.</div>
+        <div [hidden]="!username.errors.minlength">username must be more than 6 characters long.</div>
+        <div [hidden]="!username.errors.maxlength">username must be less than 15 characters long.</div>
+        <div [hidden]="!username.errors.invalidusername">username is invalid.</div>
       </div>
     </mat-form-field>
+
     <mat-form-field [ngClass]="{'error': email.errors && !email.pristine}" dividerColor="{{email.errors && !email.pristine ? 'warn' : 'primary'}}">
       <input type="email" matInput formControlName="email" placeholder="Email *">
       <div *ngIf="email.errors && !email.pristine" class="error-msg">
@@ -15,24 +18,28 @@
         <div [hidden]="!email.errors.pattern">email format should be cong@deptrai.com</div>
       </div>
     </mat-form-field>
-    <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
-      <input type="password" matInput formControlName="password" placeholder="Password *">
-      <div *ngIf="password.errors && !password.pristine" class="error-msg">
-        <div [hidden]="!password.errors.required">password is required.</div>
-        <div [hidden]="!password.errors.pattern">password must be minimum 8 characters, at least one letter, one number and one special character.</div>
-      </div>
-    </mat-form-field>
-    <mat-form-field [ngClass]="{'error': verifyPassword.errors && !verifyPassword.pristine}" dividerColor="{{verifyPassword.errors && !verifyPassword.pristine ? 'warn' : 'primary'}}">
-      <input type="verifyPassword" matInput formControlName="verifyPassword" placeholder="Verify Password *">
-      <div *ngIf="verifyPassword.errors && !verifyPassword.pristine" class="error-msg">
-        <div [hidden]="!verifyPassword.errors.required">verify password is required.</div>
-      </div>
-    </mat-form-field>
+
+    <div formGroupName="pw">
+      <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
+        <input type="password" matInput formControlName="password" placeholder="Password *">
+        <div *ngIf="password.errors && !password.pristine" class="error-msg">
+          <div [hidden]="!password.errors.required">password is required.</div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field [ngClass]="{'error': (confirmPassword.errors && !confirmPassword.pristine) || registerForm.hasError('passwordnotmatch', ['pw'])}"
+        dividerColor="{{confirmPassword.errors && !confirmPassword.pristine || registerForm.hasError('passwordnotmatch', ['pw']) ? 'warn' : 'primary'}}">
+        <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password *">
+        <div *ngIf="confirmPassword.errors && !confirmPassword.pristine" class="error-msg">
+          <div [hidden]="!confirmPassword.errors.required">confirm password is required.</div>
+        </div>
+        <div *ngIf="registerForm.hasError('passwordnotmatch', ['pw']) && !confirmPassword.errors" class="error-msg">
+          <div [hidden]="!registerForm.hasError('passwordnotmatch', ['pw']) ">password does not match.</div>
+        </div>
+      </mat-form-field>
+    </div>
   </form>
 </div>
 <div mat-dialog-actions class="my-dialog-actions">
   <button mat-raised-button color="primary" [disabled]="registerForm.invalid" (click)="register()">Register</button>
-</div>
-<div [hidden]="!submitted" *ngIf="registerForm.valid">
-  <div class="col alert alert-success text-center" role="alert">Register Successful!</div>
 </div>

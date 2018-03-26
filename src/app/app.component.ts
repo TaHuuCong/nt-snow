@@ -30,7 +30,8 @@ export class AppComponent {
   openDialogLogin(): void {
     const dialogRef = this.dialog.open(LoginFormComponent, {
       width: '400px',
-      height: 'auto'
+      height: 'auto',
+      // disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -40,7 +41,7 @@ export class AppComponent {
 
   openDialogRegister(): void {
     const dialogRef = this.dialog.open(RegisterFormComponent, {
-      width: '400px',
+      width: '600px',
       height: 'auto'
     });
 

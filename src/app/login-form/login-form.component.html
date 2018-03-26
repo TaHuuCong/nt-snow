@@ -19,10 +19,5 @@
   <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Login</button>
 </div>
 <div [hidden]="!submitted">
-  <div *ngIf="loginForm.value.username === admin && loginForm.value.password === pass">
-    <div class="col alert alert-success text-center" role="alert">Login Successful!</div>
-  </div>
-  <div *ngIf="loginForm.value.username !== admin || loginForm.value.password !== pass">
-    <div class="col alert alert-danger text-center" role="alert">Username or Password is incorrect</div>
-  </div>
+  <div class="col alert alert-danger text-center" role="alert">Username or Password is incorrect</div>
 </div>

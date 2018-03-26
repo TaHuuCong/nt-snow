@@ -39,29 +39,6 @@
   </div>
   <div class="ci-h-30"></div>
   <div class="form-group row">
-    <button class="ci-form-btn" [disabled]="!frContact.valid">Send Message</button>
-  </div>
-  <div class="form-group row">
-    <div class="col alert alert-success" role="alert" [hidden]="!submitted">
-      <div>Thank you! Your message has been sent successfully.</div>
-      <table class="table">
-        <tr>
-          <td>Name:</td>
-          <td>{{frContact.value.contactName}}</td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>{{frContact.value.contactEmail}}</td>
-        </tr>
-        <tr>
-          <td>Title:</td>
-          <td>{{frContact.value.contactTitle}}</td>
-        </tr>
-        <tr>
-          <td>Comment:</td>
-          <td>{{frContact.value.contactComment}}</td>
-        </tr>
-      </table>
-    </div>
+    <button class="ci-form-btn" [disabled]="frContact.invalid" (click)="sendMessage()">Send Message</button>
   </div>
 </form>

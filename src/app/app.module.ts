@@ -9,21 +9,26 @@ import {
   MatCheckboxModule,
   MatCardModule
 } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+import { TextEqualityValidatorModule } from 'ngx-text-equality-validator';
 
 
 import { AppComponent } from './app.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { LoginFormComponent, LoginSuccessComponent } from './login-form/login-form.component';
+import { RegisterFormComponent, RegisterSuccessComponent } from './register-form/register-form.component';
+import { ContactFormComponent, ContactSuccessComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
+    LoginSuccessComponent,
     RegisterFormComponent,
-    ContactFormComponent
+    RegisterSuccessComponent,
+    ContactFormComponent,
+    ContactSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +40,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    Ng2PageScrollModule
   ],
-  entryComponents: [LoginFormComponent, RegisterFormComponent],
+  entryComponents: [LoginFormComponent, RegisterFormComponent, LoginSuccessComponent, RegisterSuccessComponent, ContactSuccessComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

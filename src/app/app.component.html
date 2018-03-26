@@ -19,10 +19,10 @@
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav ml-auto my-nav-ul">
             <li class="nav-item">
-              <a href="#about">About</a>
+              <a pageScroll [pageScrollSpeed]="4000" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a href="">Contact</a>
+              <a pageScroll [pageScrollSpeed]="5000" href="#contact">Contact</a>
             </li>
             <li class="nav-item">
               <a href="#" (click)="openDialogLogin()">Login</a>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="angle-down">
-      <a href="">
+      <a pageScroll [pageScrollSpeed]="1500" href="#about">
         <i class="fa fa-angle-down"></i>
       </a>
     </div>
@@ -79,7 +79,7 @@
   <div class="ft-h-94"></div>
   <div class="container">
     <div class="row ft-row">
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class=" col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-portfolio"></span>
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class=" col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-clock"></span>
@@ -103,7 +103,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class=" col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-star"></span>
@@ -115,7 +115,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class=" col-md-6 col-lg-3">
         <div class="one-feature">
           <div class="ft-icon">
             <span class="pe-7s-like"></span>
@@ -147,7 +147,7 @@
     </div>
 
     <div class="row bp-items">
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-1">
         </div>
@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-2">
         </div>
@@ -171,7 +171,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-3">
         </div>
@@ -183,7 +183,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-4">
         </div>
@@ -195,7 +195,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-5">
         </div>
@@ -207,7 +207,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-6">
         </div>
@@ -219,7 +219,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-7">
         </div>
@@ -231,7 +231,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-8">
         </div>
@@ -243,7 +243,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-4 no-padding">
+      <div class=" col-md-6 col-lg-4 no-padding">
         <a href="" class="bp-item-link"></a>
         <div class="bp-item-image bp-img-9">
         </div>
@@ -536,11 +536,11 @@
 <!-- END: Lastest-Blog -->
 
 <!-- START: Contact-Info -->
-<div class="contact-info">
+<div class="contact-info" id="contact">
   <div class="ci-h-100"></div>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-lg-5">
+      <div class=" col-lg-5">
         <div class="ci-text">
           <h1 class="ci-text-h1">Contact Info:</h1>
           <p class="ci-text-p">
@@ -563,7 +563,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-12 col-lg-7">
+      <div class=" col-lg-7">
         <!-- START: Form -->
         <thc-contact-form></thc-contact-form>
         <!-- END: Form -->

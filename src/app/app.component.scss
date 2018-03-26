@@ -34,7 +34,7 @@
 .my-nav {
   padding: 33px 0;
   background-color: transparent;
-  z-index: 0;
+  z-index: 100;
 }
 
 .my-nav .my-nav-ul>li>a {
@@ -479,6 +479,11 @@
 .lb-item-img img {
   width: 100%;
   overflow: hidden;
+  height: 250px;
+}
+
+.lb-item-img img:focus {
+  outline: none;
 }
 
 .lb-item-option a {

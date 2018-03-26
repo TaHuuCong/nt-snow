@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -13,7 +14,10 @@ export class ContactFormComponent implements OnInit {
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   submitted = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.frContact = this.fb.group({
@@ -44,5 +48,27 @@ export class ContactFormComponent implements OnInit {
     this.submitted = true;
     console.log(this.frContact);
   }
+
+  sendMessage(): void {
+    this.dialog.open(ContactSuccessComponent, {
+      width: '400px',
+      height: 'auto',
+    });
+  }
+
+}
+
+
+
+@Component({
+  selector: 'thc-contact-success',
+  template: `<h2>Thank you! Your message has been sent successfully !!!</h2>`,
+  styles: ['h2 {color: green; text-align: center; font-size: 20px;}']
+})
+export class ContactSuccessComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<ContactSuccessComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
 }

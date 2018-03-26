@@ -1,6 +1,23 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+// Validate: không cho phép user đăng ký các username như 'admin', 'manager'...
+export function forbiddenUsername(users = []) {
+  return (c: AbstractControl) => {
+    return (users.includes(c.value)) ? {
+      invalidusername: true
+    } : null;
+  };
+}
+
+export function comparePassword(c: AbstractControl) {
+  const v = c.value;
+  return (v.password === v.confirmPassword) ? null : {
+    passwordnotmatch: true
+  };
+}
 
 @Component({
   selector: 'thc-register-form',
@@ -11,23 +28,32 @@ export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
-  passwordPattern = '^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$';
-  submitted = false;
+  passwordPattern = '((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,})';
+
 
   constructor(
+    private fb: FormBuilder,
     public dialogRef: MatDialogRef<RegisterFormComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-      email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      password: new FormControl('', [Validators.required, Validators.pattern(this.passwordPattern)]),
-      verifyPassword: new FormControl('', [Validators.required]),
+    this.registerForm = this.fb.group({
+      username: ['',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(15),
+          forbiddenUsername(['admin', 'ADMIN', 'manager', 'MANAGER'])
+        ]
+      ],
+      email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+      pw: this.fb.group({
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required]
+      }, {
+          validator: comparePassword
+        })
     });
   }
 
@@ -40,15 +66,34 @@ export class RegisterFormComponent implements OnInit {
   }
 
   get password() {
-    return this.registerForm.get('password');
+    return this.registerForm.get('pw.password');
   }
 
-  get verifyPassword() {
-    return this.registerForm.get('verifyPassword');
+  get confirmPassword() {
+    return this.registerForm.get('pw.confirmPassword');
   }
 
   register() {
-    this.submitted = true;
-    console.log(this.registerForm);
+    if (this.registerForm.valid) {
+      this.dialogRef.close();
+      this.dialog.open(RegisterSuccessComponent, {
+        width: '400px',
+        height: 'auto',
+      });
+    }
   }
+}
+
+
+@Component({
+  selector: 'thc-register-success',
+  template: `<h2>Register Successfully !!!</h2>`,
+  styles: ['h2 {color: green; text-align: center; font-size: 20px;}']
+})
+export class RegisterSuccessComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<RegisterSuccessComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
 }
