@@ -1,9 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginComponent } from '../../../../nash-training/src/app/modal-form/login/login.component';
-
-
 
 @Component({
   selector: 'thc-login-form',
