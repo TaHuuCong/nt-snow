@@ -4,13 +4,13 @@
     <mat-form-field [ngClass]="{'error': username.errors && !username.pristine}" dividerColor="{{username.errors && !username.pristine ? 'warn' : 'primary'}}">
       <input type="username" matInput formControlName="username" placeholder="Username *">
       <div *ngIf="username.errors && !username.pristine" class="error-msg">
-        <div [hidden]="!username.errors.required">username is required.</div>
+        <div [hidden]="!username.errors.required">username is required</div>
       </div>
     </mat-form-field>
     <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
       <input type="password" matInput formControlName="password" placeholder="Password *">
       <div *ngIf="password.errors && !password.pristine" class="error-msg">
-        <div [hidden]="!password.errors.required">Password is required.</div>
+        <div [hidden]="!password.errors.required">password is required</div>
       </div>
     </mat-form-field>
   </form>
@@ -19,5 +19,5 @@
   <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Login</button>
 </div>
 <div [hidden]="!submitted">
-  <div class="col alert alert-danger text-center" role="alert">Username or Password is incorrect</div>
+  <div class="col alert alert-danger text-center" role="alert">username or password is incorrect</div>
 </div>

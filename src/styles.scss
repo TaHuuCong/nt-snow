@@ -4,7 +4,6 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 // GLOBAL
-
 html {
   box-sizing: border-box;
   font-size: 15px;
@@ -21,3 +20,20 @@ body {
   position: relative;
 }
 
+// RESPONSIVE
+@media screen and (max-width: 767px) {
+  .ci-form-name {
+    margin-bottom: 30px;
+    padding-right: 0;
+  }
+
+  .ci-form-email {
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 0;
+  }
+}

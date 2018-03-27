@@ -1,15 +1,4 @@
-// RESPONSIVE
-@media only screen and (max-width: 768px) {
-  .contact-info .ci-form-name {
-    margin-bottom: 30px;
-  }
-}
 
-@media only screen and (min-width: 992px) {
-  .container {
-    padding: 0;
-  }
-}
 
 // GLOBAL
 .wh-h1,
@@ -112,12 +101,23 @@
   transform-style: preserve-3d;
 }
 
+@keyframes a {
+  0%,
+  to {
+      transform: translateX(0)
+  }
+  50% {
+      width: 15px;
+      transform: translateX(3px)
+  }
+}
+
 .icon-burger .ib-1 {
   margin-top: -8px;
 }
 
 .icon-burger:hover .ib-1, a:hover>.icon-burger .ib-1 {
-  animation: a .4s ease-in-out;
+  animation: a 0.5s ease-in-out;
 }
 
 .icon-burger .ib-2 {
@@ -125,7 +125,7 @@
 }
 
 .icon-burger:hover .ib-2, a:hover>.icon-burger .ib-2 {
-  animation: a .4s .1s ease-in-out;
+  animation: a 0.5s 0.1s ease-in-out;
 }
 
 .icon-burger .ib-3 {
@@ -133,7 +133,7 @@
 }
 
 .icon-burger:hover .ib-3, a:hover>.icon-burger .ib-3 {
-  animation: a .4s .2s ease-in-out;
+  animation: a 0.5s 0.2s ease-in-out;
 }
 
 /* Style for Scroll event: Khi scroll thì add thêm class nav-white-background */
@@ -241,11 +241,13 @@
   width: 100%;
   z-index: 1000;
   text-align: center;
-  transition: display 5s;
+  opacity: 0;
+  transition: opacity 5s;
 }
 
 .nav-mobile.open {
   display: block;
+  opacity: 1;
 }
 
 .nav-mobile .nav-bg {
@@ -283,7 +285,11 @@
   top: 38px;
   cursor: pointer;
   padding: 0 15px;
-  color: #d8d8d8;
+  color: #8c8a8a;
+}
+
+.nav-close-icon:hover {
+  color: #fff;
 }
 
 .close-icon {
@@ -338,18 +344,18 @@
   text-transform: none;
   font-weight: 700;
   padding: 3px 80px;
-  color: #d8d8d8;
+  color: #8c8a8a;
   transition: color 0.5s;
 }
 
 .nav-table-content ul li a:hover {
   text-decoration: none;
-  color: red;
+  color: #fff;
 }
 
 .nav-table-footer {
   margin: 0 auto;
-  padding-top: 70px; 
+  padding-top: 70px;
 }
 
 .nav-table-footer ul {
@@ -365,13 +371,13 @@
 .nav-table-footer ul li a {
   display: block;
   font-size: 17px;
-  color: #d8d8d8;
+  color: #8c8a8a;
   padding: 3px 6px;
   transition: color 0.5s;
 }
 
 .nav-table-footer ul li a:hover {
-  color: red;
+  color: #fff;
 }
 
 //--------------------------------------------------------------------

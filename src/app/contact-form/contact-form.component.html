@@ -3,16 +3,16 @@
     <div class="col-md-6 ci-form-name">
       <input type="text" class="form-control ci-form-control" placeholder="Your Name" formControlName="contactName">
       <div *ngIf="contactName.errors && !contactName.pristine" class="notify-error">
-        <div [hidden]="!contactName.errors.required">Name is required.</div>
-        <div [hidden]="!contactName.errors.minlength">Please enter at least 4 chars</div>
-        <div [hidden]="!contactName.errors.pattern">Name start with a alphabet</div>
+        <div [hidden]="!contactName.errors.required">name is required</div>
+        <div [hidden]="!contactName.errors.minlength">please enter at least 4 chars</div>
+        <div [hidden]="!contactName.errors.pattern">name start with a alphabet</div>
       </div>
     </div>
     <div class="col-md-6 ci-form-email">
       <input type="email" class="form-control ci-form-control" placeholder="Your Email" formControlName="contactEmail">
       <div *ngIf="contactEmail.errors && !contactEmail.pristine" class="notify-error">
-        <div [hidden]="!contactEmail.errors.required">Email is required.</div>
-        <div [hidden]="!contactEmail.errors.pattern">Email format should be cong@deptrai.com</div>
+        <div [hidden]="!contactEmail.errors.required">email is required</div>
+        <div [hidden]="!contactEmail.errors.pattern">email format should be cong@deptrai.com</div>
       </div>
     </div>
   </div>
@@ -20,14 +20,14 @@
   <div class="form-group row">
     <input type="text" class="form-control ci-form-control ci-form-title" placeholder="Your Title" formControlName="contactTitle">
     <div *ngIf="contactTitle.errors && !contactTitle.pristine" class="notify-error">
-      <div [hidden]="!contactTitle.errors.required">Title is required.</div>
+      <div [hidden]="!contactTitle.errors.required">title is required</div>
     </div>
   </div>
   <div class="ci-h-30"></div>
   <div class="form-group row">
     <textarea class="form-control ci-form-control" rows="8" placeholder="Your Comment" aria-required="true" formControlName="contactComment"></textarea>
     <div *ngIf="contactComment.errors && !contactComment.pristine" class="notify-error">
-      <div [hidden]="!contactComment.errors.required">Please write something for us.</div>
+      <div [hidden]="!contactComment.errors.required">please write something for us</div>
     </div>
   </div>
   <div class="ci-h-30"></div>

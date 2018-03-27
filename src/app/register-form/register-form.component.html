@@ -4,26 +4,28 @@
     <mat-form-field [ngClass]="{'error': username.errors && !username.pristine}" dividerColor="{{username.errors && !username.pristine ? 'warn' : 'primary'}}">
       <input type="username" matInput formControlName="username" placeholder="Username *">
       <div *ngIf="username.errors && !username.pristine" class="error-msg">
-        <div [hidden]="!username.errors.required">username is required.</div>
-        <div [hidden]="!username.errors.minlength">username must be more than 6 characters long.</div>
-        <div [hidden]="!username.errors.maxlength">username must be less than 15 characters long.</div>
-        <div [hidden]="!username.errors.invalidusername">username is invalid.</div>
+        <div [hidden]="!username.errors.required">username is required</div>
+        <div [hidden]="!username.errors.minlength">username must be more than 6 characters long</div>
+        <div [hidden]="!username.errors.maxlength">username must be less than 15 characters long</div>
+        <div [hidden]="!username.errors.invalidusername">username is invalid</div>
+        <div [hidden]="!username.errors.nospace">spaces are not allowed in username</div>
       </div>
     </mat-form-field>
 
     <mat-form-field [ngClass]="{'error': email.errors && !email.pristine}" dividerColor="{{email.errors && !email.pristine ? 'warn' : 'primary'}}">
       <input type="email" matInput formControlName="email" placeholder="Email *">
       <div *ngIf="email.errors && !email.pristine" class="error-msg">
-        <div [hidden]="!email.errors.required">email is required.</div>
+        <div [hidden]="!email.errors.required">email is required</div>
         <div [hidden]="!email.errors.pattern">email format should be cong@deptrai.com</div>
       </div>
     </mat-form-field>
 
     <div formGroupName="pw" class="my-register-form">
       <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
-        <input type="password" matInput formControlName="password" placeholder="Password *">
+        <input type="text" matInput formControlName="password" placeholder="Password *">
         <div *ngIf="password.errors && !password.pristine" class="error-msg">
-          <div [hidden]="!password.errors.required">password is required.</div>
+          <div [hidden]="!password.errors.required">password is required</div>
+          <div [hidden]="!password.errors.pattern">password must contain 6-13 characters, at least one lower case letter, one upper case letter, one digit, and no spaces</div>
         </div>
       </mat-form-field>
 
@@ -34,7 +36,7 @@
           <div [hidden]="!confirmPassword.errors.required">confirm password is required.</div>
         </div>
         <div *ngIf="registerForm.hasError('passwordnotmatch', ['pw']) && !confirmPassword.errors" class="error-msg">
-          <div [hidden]="!registerForm.hasError('passwordnotmatch', ['pw']) ">password does not match.</div>
+          <div [hidden]="!registerForm.hasError('passwordnotmatch', ['pw']) ">confirm password and password do not match</div>
         </div>
       </mat-form-field>
     </div>

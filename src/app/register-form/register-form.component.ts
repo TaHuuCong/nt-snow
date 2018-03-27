@@ -12,6 +12,15 @@ export function forbiddenUsername(users = []) {
   };
 }
 
+// Validate: không có khoảng trắng ở giữa username, có thể có ở đầu và cuối
+export function nospaceValidator(c: AbstractControl) {
+  const re = / /;
+  if (c.value && c.value.trim().match(re)) {
+    return { nospace: true };
+  }
+}
+
+// Validate: so sánh confirmPassword và password --> khi có error thì là error của pw
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
   return (v.password === v.confirmPassword) ? null : {
@@ -28,7 +37,7 @@ export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
-  passwordPattern = '((?=.*\d)(?=.*[A-Z])(?=.*\W).{8,})';
+  passwordPattern = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,13}$';
 
 
   constructor(
@@ -44,12 +53,13 @@ export class RegisterFormComponent implements OnInit {
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(15),
-          forbiddenUsername(['admin', 'ADMIN', 'manager', 'MANAGER'])
+          forbiddenUsername(['admin', 'ADMIN', 'manager', 'MANAGER', 'Admin', 'Manager']),
+          nospaceValidator,
         ]
       ],
       email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
       pw: this.fb.group({
-        password: ['', Validators.required],
+        password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
         confirmPassword: ['', Validators.required]
       }, {
           validator: comparePassword

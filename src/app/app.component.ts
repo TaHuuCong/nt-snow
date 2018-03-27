@@ -50,7 +50,7 @@ export class AppComponent {
 
   openDialogRegister(): void {
     const dialogRef = this.dialog.open(RegisterFormComponent, {
-      width: '500px',
+      width: '620px',
       height: 'auto'
     });
 
