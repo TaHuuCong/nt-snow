@@ -22,7 +22,7 @@ form {
 .my-dialog-actions button[disabled] {
   cursor: not-allowed;
   background-color: #673ab7;
-  opacity: 0.5; 
+  opacity: 0.5;
   color: #fff;
 }
 
@@ -42,3 +42,18 @@ form {
 .my-register-form mat-form-field {
   width: 100%;
 }
+
+.my-gender span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+:host /deep/ .my-gender mat-radio-button label {
+  margin-bottom: 2px;
+}
+
+:host /deep/ .my-gender mat-radio-button label:first-child {
+  margin-right: 10px;
+}
+
+

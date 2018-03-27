@@ -5,12 +5,18 @@
       <input type="username" matInput formControlName="username" placeholder="Username *">
       <div *ngIf="username.errors && !username.pristine" class="error-msg">
         <div [hidden]="!username.errors.required">username is required</div>
-        <div [hidden]="!username.errors.minlength">username must be more than 6 characters long</div>
+        <div [hidden]="!username.errors.minlength">username must be more than 5 characters long</div>
         <div [hidden]="!username.errors.maxlength">username must be less than 15 characters long</div>
         <div [hidden]="!username.errors.invalidusername">username is invalid</div>
         <div [hidden]="!username.errors.nospace">spaces are not allowed in username</div>
       </div>
     </mat-form-field>
+
+    <mat-radio-group class="my-gender">
+      <span>Gender:</span>
+      <mat-radio-button value="1">Male</mat-radio-button>
+      <mat-radio-button value="2">Female</mat-radio-button>
+    </mat-radio-group>
 
     <mat-form-field [ngClass]="{'error': email.errors && !email.pristine}" dividerColor="{{email.errors && !email.pristine ? 'warn' : 'primary'}}">
       <input type="email" matInput formControlName="email" placeholder="Email *">
@@ -22,16 +28,18 @@
 
     <div formGroupName="pw" class="my-register-form">
       <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
-        <input type="text" matInput formControlName="password" placeholder="Password *">
+        <input [type]="hide ? 'password' : 'text'" matInput formControlName="password" placeholder="Password *">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         <div *ngIf="password.errors && !password.pristine" class="error-msg">
           <div [hidden]="!password.errors.required">password is required</div>
-          <div [hidden]="!password.errors.pattern">password must contain 6-13 characters, at least one lower case letter, one upper case letter, one digit, and no spaces</div>
+          <div [hidden]="!password.errors.pattern">password must be alphanumeric with at least one number, one letter, and be between 6-15 character in length.</div>
         </div>
       </mat-form-field>
 
       <mat-form-field [ngClass]="{'error': (confirmPassword.errors && !confirmPassword.pristine) || registerForm.hasError('passwordnotmatch', ['pw'])}"
         dividerColor="{{confirmPassword.errors && !confirmPassword.pristine || registerForm.hasError('passwordnotmatch', ['pw']) ? 'warn' : 'primary'}}">
-        <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password *">
+        <input [type]="hide2 ? 'password' : 'text'" matInput formControlName="confirmPassword" placeholder="Confirm Password *">
+        <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
         <div *ngIf="confirmPassword.errors && !confirmPassword.pristine" class="error-msg">
           <div [hidden]="!confirmPassword.errors.required">confirm password is required.</div>
         </div>

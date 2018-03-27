@@ -10,8 +10,9 @@ import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-  user = 'cong';
+  user = 'thcong';
   pass = '12345';
+  hide = true;
   submitted = false;
 
   constructor(
@@ -22,7 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required]],
     });
   }

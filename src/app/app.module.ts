@@ -7,7 +7,9 @@ import {
   MatInputModule,
   MatButtonModule,
   MatCheckboxModule,
-  MatCardModule
+  MatCardModule,
+  MatIconModule,
+  MatRadioModule
 } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
@@ -40,6 +42,8 @@ import { ContactFormComponent, ContactSuccessComponent } from './contact-form/co
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
+    MatIconModule,
+    MatRadioModule,
     Ng2PageScrollModule
   ],
   entryComponents: [LoginFormComponent, RegisterFormComponent, LoginSuccessComponent, RegisterSuccessComponent, ContactSuccessComponent],

@@ -37,7 +37,9 @@ export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
-  passwordPattern = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,13}$';
+  passwordPattern = '(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$';
+  hide = true;
+  hide2 = true;
 
   constructor(
     private fb: FormBuilder,
@@ -50,7 +52,7 @@ export class RegisterFormComponent implements OnInit {
       username: ['',
         [
           Validators.required,
-          Validators.minLength(6),
+          Validators.minLength(5),
           Validators.maxLength(15),
           forbiddenUsername(['admin', 'ADMIN', 'manager', 'MANAGER', 'Admin', 'Manager']),
           nospaceValidator,

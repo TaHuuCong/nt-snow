@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class ContactFormComponent implements OnInit {
 
   frContact: FormGroup;
-  namePattern = '[a-zA-Z]+';
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   submitted = false;
 
@@ -24,13 +23,12 @@ export class ContactFormComponent implements OnInit {
       contactName: ['',
         [
           Validators.required,
-          Validators.minLength(4),
-          Validators.pattern(this.namePattern)
+          Validators.minLength(4)
         ]
       ],
       contactEmail: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-      contactTitle: ['', Validators.required],
-      contactComment: ['', Validators.required]
+      contactTitle: ['', [Validators.required, Validators.minLength(20)]],
+      contactComment: ['', [Validators.required, Validators.minLength(30)]]
     });
   }
 
@@ -52,6 +50,7 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.frContact.reset();
     console.log(this.frContact);
   }
 

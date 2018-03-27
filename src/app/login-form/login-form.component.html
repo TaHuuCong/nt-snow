@@ -1,18 +1,21 @@
 <h2 mat-dialog-title class="h2-dialog-login">Login Form</h2>
-<div mat-dialog-content>
+<div mat-dialog-content class="my-dialog">
   <form [formGroup]="loginForm" class="my-form-login">
     <mat-form-field [ngClass]="{'error': username.errors && !username.pristine}" dividerColor="{{username.errors && !username.pristine ? 'warn' : 'primary'}}">
       <input type="username" matInput formControlName="username" placeholder="Username *">
       <div *ngIf="username.errors && !username.pristine" class="error-msg">
         <div [hidden]="!username.errors.required">username is required</div>
+        <div [hidden]="!username.errors.minlength">username must be minimum 5 characters</div>
       </div>
     </mat-form-field>
     <mat-form-field [ngClass]="{'error': password.errors && !password.pristine}" dividerColor="{{password.errors && !password.pristine ? 'warn' : 'primary'}}">
-      <input type="password" matInput formControlName="password" placeholder="Password *">
+      <input matInput formControlName="password" placeholder="Password *" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
       <div *ngIf="password.errors && !password.pristine" class="error-msg">
         <div [hidden]="!password.errors.required">password is required</div>
       </div>
     </mat-form-field>
+    <mat-checkbox>Remember me!</mat-checkbox>
   </form>
 </div>
 <div mat-dialog-actions class="my-dialog-actions">
