@@ -39,7 +39,6 @@ export class RegisterFormComponent implements OnInit {
   emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   passwordPattern = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,13}$';
 
-
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<RegisterFormComponent>,
